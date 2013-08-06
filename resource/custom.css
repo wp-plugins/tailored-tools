@@ -1,0 +1,128 @@
+
+/**
+ *	Form Helpers
+ */
+
+form.tws { max-width:95%; margin:0 auto 2rem; }
+form.tws p { margin:0; padding:0 0 1rem; clear:both; }
+
+form.tws p label { margin:0; display:block; cursor:pointer; }
+form.tws p label span { width:25%; float:left; display:block; padding-top:0.1em; }
+form.tws p label .txt { width:75%; padding:0.3rem 0.5rem;  border:1px solid #DDD; color:#555; background-color:#FFF;
+						box-shadow:inset 0 0 5px #DDD; border-radius:3px; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; }
+form.tws p textarea.txt { height:6em; }
+form.tws p .txt:focus { box-shadow:2px 2px 4px #CCC; border-color:#CCC; }
+
+form.tws p label select { cursor:pointer; }
+form.tws .chzn-container-single .chzn-single { border-color:#CCC; }
+form.tws .chzn-container .chzn-drop { border-color:#CCC; }
+form.tws .chzn-container { width:75% !important; }
+
+form.tws p.sep { line-height:0.5; }
+
+form.tws p.wide label span { width:45%; }
+form.tws p.wide label .txt { width:55%; }
+form.tws p.wide .chzn-container { width:55% !important; }
+
+form.tws p.block label span { width:auto; float:none; }
+form.tws p.block label .txt { width:100%; }
+form.tws p.block .chzn-container { width:100% !important; }
+
+form.tws p.radio span { display:block; }
+form.tws p.radio label { padding:0.2em 0 0.2em 25%; }
+form.tws p.radio label input { width:auto; padding:0; background:none; border:none; box-shadow:none; margin-right:1em; }
+
+form.tws p label input.datepicker { }
+form.tws p label input.hasDatepicker { background-image:url(calendar.png); background-position:right 5px center; background-repeat:no-repeat;
+										cursor:pointer; max-width:10em; }
+form.tws p label input.datetimepicker { max-width:14em; }
+form.tws p label input.timepicker.hasDatepicker { background-image:url(time.png); }
+
+form.tws fieldset { border:0; margin:0 0 1rem 0; padding:0; }
+form.tws fieldset legend { font-weight:bold; margin:0; padding:0 0 1rem; }
+
+form.tws p.submit { padding-left:25%; }
+form.tws p.submit input { background:#1E1E1E; border-radius:3px; padding:0.7rem 2rem; font-size:1rem; cursor:pointer; }
+form.tws p.submit input:hover { background:#373737; box-shadow:inset 0 0 1.5rem #000; }
+
+/**
+ *	Form Validation
+ */
+p.error, p.success	{ padding:0.8em 1.1em; border-radius:0.3em; }
+p.error				{ border:1px solid #900; background:#fdfafa url(exclaim.gif) top right no-repeat;; }
+p.success			{ border:1px solid #060; background:#f2f7f2; }
+
+form.tws label.error { display:none !important; }
+form.tws p .error, form.tws p .error:focus,
+form.tws p label .error, form.tws p label .error:focus,
+form.tws .error, form.tws .error:focus { border-color:#900; background-color:#FDFAFA; }
+
+/**
+ *	Responsive for smaller screens
+ */
+@media only screen and (max-width: 600px) {
+	form.tws p label span, form.tws p.wide label span { width:auto; float:none; }
+	form.tws p label .txt, form.tws p.wide label .txt { width:100%; }
+	form.tws .chzn-container { width:100% !important; }
+	form.tws p.radio label { padding-left:2rem; }
+	form.tws p.submit { padding-left:0; padding-right:0; text-align:center; }
+}
+
+
+/**
+ *	jQuery UI Datepicker
+ */
+.ui-datepicker { display:none; }
+.ui-datepicker { background:#FFF; border:1px solid #CCC; padding:0.5em; box-shadow:2px 2px 4px #CCC; border-radius:0.3em; font-size:1rem; }
+.ui-datepicker .ui-datepicker-header a { float:left; display:block; width:16px; height:16px; background:url(icons.png) top right no-repeat; text-decoration:none; cursor:pointer; }
+.ui-datepicker .ui-datepicker-header a.ui-datepicker-next { float:right; background-position:top left; }
+.ui-datepicker .ui-datepicker-header a span { display:block; font-size:1px; text-indent:-2999px; }
+.ui-datepicker .ui-datepicker-header .ui-datepicker-title { text-align:center; }
+
+.ui-datepicker .ui-datepicker-header select { width:auto; padding:0; box-shadow:none; border:1px solid #DDD; color:#333; cursor:pointer; }
+
+.ui-datepicker .ui-datepicker-calendar { }
+.ui-datepicker .ui-datepicker-calendar th, .ui-datepicker .ui-datepicker-calendar td { text-align:center; }
+.ui-datepicker .ui-datepicker-calendar th { padding:0.2em; }
+.ui-datepicker .ui-datepicker-calendar td { }
+.ui-datepicker .ui-datepicker-calendar a { display:block; padding:0.2em; text-decoration:none; }
+.ui-datepicker .ui-datepicker-calendar a:hover { background:#c7dfef; }
+.ui-datepicker .ui-datepicker-calendar a.ui-state-active { background:#c7efeb; }
+
+/**
+ *	jQuery Timepicker (Datepicker Add-on)
+ */
+.ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
+.ui-timepicker-div dl { text-align: left; }
+.ui-timepicker-div dl dt { height: 25px; margin-bottom: -25px; }
+.ui-timepicker-div dl dd { margin: 0 10px 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+.ui-tpicker-grid-label { background: none; border: none; margin: 0; padding: 0; }
+
+.ui-timepicker-rtl{ direction: rtl; }
+.ui-timepicker-rtl dl { text-align: right; }
+.ui-timepicker-rtl dl dd { margin: 0 65px 10px 10px; }
+
+.ui-timepicker-div { border-top:1px solid #CCC; margin-top:3px; padding-top:5px; }
+.ui-timepicker-div select { color:#333; }
+.ui-datepicker-buttonpane { text-align:center; }
+.ui-datepicker-buttonpane button { padding:0.5em 1em; margin:0 0.3em; border-radius:0.5em; }
+
+/**
+ *	jQuery UI Tabs
+ */
+.ui-tabs { margin:0.5em 0 1.5em; }
+.ui-tabs .ui-tabs-panel { clear:both; border:1px solid #EEE; background:#FFF; border-top:3px solid #d2232a; padding:1px; }
+.ui-tabs .ui-tabs-hide { display:none; }
+.ui-tabs .ui-tabs-nav:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+.ui-tabs .ui-tabs-nav { margin:0; padding:0; width:100%; background:none; padding-top:10px; }
+.ui-tabs .ui-tabs-nav li { display:inline; margin:0; padding:0; }
+.ui-tabs .ui-tabs-nav li a { display:block; float:left; text-decoration:none; padding:0.5em 0.9em; margin:0 3px 0 0; 
+							color:#626060; background:#d7d6d6; border-radius:0.4em 0.4em 0 0; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected {  }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a { color:#FFF; background:#d2232a; }
+.ui-tabs .ui-tabs-nav { border-radius:0.4em 0.4em 0 0; }
+.ui-tabs .tab_panel { padding:0.5em 0.8em; border-radius:0 0 0.4em 0.4em; }
+.ui-tabs .tab_panel h1, .format_text .ui-tabs .tab_panel h2 { display:none; }
+.ui-tabs .tab_panel:after { clear:both; content:"."; display:block; height:0; visibility:hidden; }
+

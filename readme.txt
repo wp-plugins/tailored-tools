@@ -1,0 +1,150 @@
+=== Tailored Tools ===
+Contributors:		tailoredweb, ajferg
+Tags:				
+Requires at least:	3.0
+Tested up to:		3.8.1
+Stable tag:			1.7.7
+
+Contains some helper classes to help you build custom forms.
+
+== Description ==
+
+This plugin contains helper classes used to build custom forms.  It's built by [Tailored Web Services](http://www.tailored.com.au "Tailored Web Services") for use on our sites, but anyone is welcome to use it.
+
+This plugin comes with a basic contact form. You can write additional plugins to extend & create more forms. If you are not comfortable writing PHP code, then this plugin is probably not right for you.
+
+It also contains some other shortcode helpers for Google Maps, jQuery UI Tabs, and Page Content.
+
+== Installation ==
+
+1. Install plugin using WordPress Plugin Browser
+1. Activate
+1. Create & install your custom plugins to extend the form functionality
+
+== Frequently Asked Questions ==
+
+= How do I use this plugin? =
+
+Just activate it!  The plugin comes with a single pre-built contact form.  You can insert the contact form using shortcode: [ContactForm]
+
+= Can you help me create new forms? =
+
+No. This plugin is available as-is.
+
+= So how do I learn how to use it? =
+
+The plugin contains two forms: a contact form, and a sample form.  Have a look at the source code to see how to write your own forms.  If you're not comfortable writing PHP code, this plugin is probably not the best choice for you.
+
+== Shortcodes ==
+
+This plugin also includes some shortcodes that we tend to use a lot.
+
+= [tabs] =
+
+This will apply formatting and javascript to implement [jQuery UI Tabs](http://jqueryui.com/demos/tabs/).  To use, simply wrap all of your tabbed content in [tabs] ... [/tabs] shortcodes.  Each H2 element will be a new tab.  Some basic CSS is included, and you can write your own in your theme file to customise the look.
+
+= [pagecontent id="1"] =
+
+Sometimes you need to include the same bit of content in many places on your site.  To save time, this shortcode will let you include the content from one page in many places.  Just use the shortcode, and provide the ID of the page you want to include.  Eg, [pagecontent id="3"] will insert all content from the page with ID = 3.  You can use [pagecontent id="3" include_title="no"] if you want to include the text only, and not the page title.
+
+= [googlemap address="123 somewhere street, Kansas"] =
+
+To embed a Google Map iframe, use this shortcode.  Google will geocode your address to determine where the pin goes.  You can also specify width, height, and zoom.  You can also provide 'class' to set a CSS class on the iframe element.  This will embed both the iFrame and a static image.  Use CSS to determine which one is shown.  Use CSS media queries for responsive behavior here.
+
+
+== Changelog ==
+= 1.7.7 =
+* Changed the function that handles file-uploads for relevant questions.  Previously, file-upload questions within fieldsets would not be included.
+* Preserve new-line characters in json_encode function when logging entries
+
+= 1.7.6 =
+* Noticed a problem with [tabs] shortcode not including some image elements. Now resolved, plus added a filter for allowed tags (tailored_tools_ui_tabs_allowed_nodes)
+
+= 1.7.5 =
+* We were trim()ing a _POST value without checking if it was an array.  Caused issues on at least one client.  Now fixed (checking if array before trim).
+
+= 1.7.4 =
+* New shortcode handler for [tabs] had an issue with iframes and other elements. Now corrected.
+* Change input type for date,time,datetime elements
+* Fix some code that was causing PHP warnings
+* Add some CSS for responsive map embed
+* Add some CSS for better ui-datepicker default apperance
+* Change dateformat from dd-mm-yy to dd/mm/yy (was a problem with validation format)
+* Allow a default of 0 on form inputs, and allow a supplied "0" value to pass server-side validation
+
+= 1.7.3 = 
+* Update how the [tabs] shortcode is parsed & handled to allow for <h2 class="something"> attributes
+* Update the related JS to handle new format, and to allow for <a href="#something"> triggers
+
+= 1.7.2 = 
+* Now using json_encode() instead of serialize() when saving arrays to database
+* Maintaining backwards compat so that old logged records still readable
+
+= 1.7.1 = 
+* Fix a stylesheet problem with jquery-chosen
+
+= 1.7 =
+* Now including a graph before displaying logs in admin area, to show leads over time.
+
+= 1.6 =
+* SVN Commit for 1.5.4 didn't include all updates.
+* Genesis 2.0+ has an "embed scripts" meta box.  So if box is empty and running 2.0 plus, disable our metabox.
+* Change ' to " in shortcodes.php (personal preference)
+
+= 1.5.4 =
+* Expanded the allowed "type" for inputs.  Better support for HTML elements like color, date, number, range, tel, email, etc, plus hidden inputs.
+* Adjust load-order of files, to allow other plugins to override certain form classes
+* Changed the way to list logged form submissions in admin area (old code will still work too)
+* When viewing logged form submissions, now broken up by per-page (instead of listings hundreds in one go)
+
+= 1.5.3 =
+* Added an admin metabox to make it easier to add AdWords conversion tracking code to pages and posts
+
+= 1.5.2 = 
+* Introduce new input types: timepicker, datetimepicker
+* Uses JS library: http://trentrichardson.com/examples/timepicker/
+* Allow a class of 'nochosen' on select elements to NOT apply the "Chosen" autoloader.
+
+= 1.5.1 =
+* Fix a formatting error in readme file that was really annoying
+
+= 1.5.0 =
+* Double-checked some Akismet code
+* Rewrote style rules for better compatibility with Genesis responsive designs (likely have negative effect on existing sites)
+* Improve the Datepicker autoloader, and add an icon
+* Added jQuery Chosen and auto-apply to all select boxes (Yes can use MIT license in plugin) https://twitter.com/markjaquith/status/188108457386311681
+
+= 1.4.0 =
+* Modify the GoogleMaps shortcode for better responsive behavior.  Now uses Google Static Maps API to grab a JPG before embedding an iFrame.
+* Note: your theme will need some additional CSS to take advantage of these features.
+
+= 1.3.9 =
+* Add a filter for ttools_form_bad_words_to_check to build a blacklist of words to ban
+* If one of those words is in the message, it immediately fails. (Spam check)
+
+= 1.3.8 =
+* Change default message to include the current page URI
+* Add a filter for ttools_form_filter_email_message
+
+= 1.3.7 =
+* Add a shortcode for [googlemap]
+* Fix a filter name typo for ttools_form_filter_ignore_fields
+
+= 1.3.6 =
+* Fix a PHP depreciation issue
+
+= 1.3.5 =
+* Fix issue with ui_tabs - JS and shortcode
+* Added some more filters for easier development
+
+= 1.3.4 =
+* Fix to apply 'required' class to datepicker elements
+* Fix the email header filter
+
+= 1.3.3 =
+* Fix the TinyMCE icon
+* Allow for non-associative arrays on select and radio elements
+
+= 1.3.1 =
+* First official release.
+
